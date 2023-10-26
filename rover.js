@@ -1,3 +1,6 @@
+const Message = require('./message.js');
+const Command = require('./command.js');
+
 class Rover {
    // Write code here!
    constructor(position)

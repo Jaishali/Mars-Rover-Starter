@@ -5,12 +5,9 @@ class Rover {
    // Write code here!
    constructor(position)
    {
+    
       this.position = position;
-      if(!position)
-       {
-         throw Error("Rover position required.");
-       }
-       this.mode = "NORMAL";
+      this.mode = "NORMAL";
       this.generatorWatts = 110;
    }
    receiveMessage(theMessage) {
@@ -38,7 +35,7 @@ class Rover {
       return {message, results};
     }
   }
-  let commands = [
+ let commands = [
     new Command('MOVE', 4321),
     new Command('STATUS_CHECK'),
     new Command('MODE_CHANGE', 'LOW_POWER'),

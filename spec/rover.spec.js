@@ -1,3 +1,4 @@
+const assert = require('assert');
 const Rover = require('../rover.js');
 const Message = require('../message.js');
 const Command = require('../command.js');
@@ -9,9 +10,17 @@ const Command = require('../command.js');
 describe("Rover class", function() {
 
   // 7 tests here!
-  it("constructor sets position and default values for mode and generatorWatts", function() {
-    expect( function() { new Rover();}).toThrow(new Error('Rover position required.'));
-  });
+  
+    let rover;
+
+    beforeEach( function() {
+        rover = new Rover("121500", ["Liftoff"]);
+    });
+
+    it("should set position and default values for mode and generatorWatts",function()  {
+        assert.strictEqual(rover.position, "121500");
+        assert.strictEqual(rover.generatorWatts, 110);
+    });
 
   it("response returned by receiveMessage contains name of message", function() {
     let commands = [new Command('MODE_CHANGE', 'LOW_POWER'), new Command('STATUS_CHECK')];
